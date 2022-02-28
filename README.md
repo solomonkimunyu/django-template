@@ -1,0 +1,2 @@
+# heroku-django
+# django-template

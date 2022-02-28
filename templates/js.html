@@ -1,0 +1,336 @@
+<html>
+<head>
+<base href="https://www.typing.com/dist/student/images/lessons/coding/" />
+	<style>
+		/* Base Styles */
+		body {
+			background-color: #f7f7f7;
+			color: #4a4a4a;
+			font-family: 'open-sans', sans-serif;
+			font-size: 16px;
+			line-height: 1.2;
+		}
+		main {
+			margin-left: auto;
+			margin-right: auto;
+			max-width: 800px;
+			padding: 20px;
+		}
+		/* Anchor Tag */
+		a {
+			color: #2D9CDB;
+			font-family: 'open-sans', sans-serif;
+			font-weight: 700;
+		}
+		a:hover {
+			color: #1789C9;
+		}
+		/* Articles get some borders, padding, and shadows */
+		article {
+			background-color: #ffffff;
+			border-width: 1px;
+			border-style: solid;
+			border-radius: 10px;
+			margin-bottom: 20px;
+			padding: 20px;
+			border-color: #eaeaea;
+			box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+			position: relative;
+		}
+		/* Avatar */
+		.avatar {
+			background-color: #ffffff;
+			border-width: 1px;
+			border-style: solid;
+			border-color: #81C4E9;
+			border-radius: 50%;
+			float: left;
+			height: 50px;
+			margin-right: 10px;
+			min-width: 50px;
+			position: relative;
+		}
+		.avatar img {
+			left: 50%;
+			position: absolute;
+			top: 50%;
+			transform: translate(-50%, -50%);
+		}
+		/* Blockquote gets some spacing around it */
+		blockquote {
+			margin-left: 0;
+			margin-right: 0;
+			margin-top: 20px;
+		}
+		/* Button */
+		button {
+			border: none;
+			cursor: pointer;
+			padding-left: 0;
+			padding-right: 0;
+			transform: scale(1);
+		}
+		button:hover {
+			transform: scale(1.2);
+		}
+		button:focus {
+			outline: none;
+		}
+		button.close {
+			opacity: 0.5;
+			position: absolute;
+			right: 20px;
+			top: 20px;
+		}
+		button.close:hover {
+			opacity: 1;
+		}
+		/* The new button in the form */
+		button.compose {
+			background-color: #2D9CDB;
+			border-radius: 10px;
+			margin-left: 10px;
+			height: 50px;
+			width: 50px;
+		}
+		button.compose:hover {
+			background-color: #1789C9;
+		}
+		button.heart {
+			float: right;
+		}
+		button.heart:hover {
+			opacity: 1;
+		}
+		/* Date Posted */
+		.date-posted {
+			color: #a9a9a9;
+			margin-bottom: 0;
+			width: 90%;
+			float: left;
+			margin-top: 0;
+		}
+		.date-posted time {
+			color: #4a4a4a;
+		}
+		/* The footer container */
+		footer {
+			margin-top: 20px;
+			height: 15px;
+		}
+		footer p {
+			color: #a9a9a9;
+			font-size: 14px;
+			font-weight: 300;
+		}
+		/* Headings */
+		h1 {
+			font-family: 'open-sans', sans-serif;
+			font-size: 16px;
+			font-weight: 700;
+			line-height: 1.2;
+			margin-top: 0;
+			margin-bottom: 0;
+			padding-top: 8px;
+		}
+		h2 {
+			color: #a9a9a9;
+			font-family: 'open-sans', sans-serif;
+			font-size: 14px;
+			font-weight: 300;
+			line-height: 1.2;
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+		/* Horizontal divider line */
+		hr {
+			border-width: 1px;
+			border-style: solid;
+			border-color: #eaeaea;
+		}
+		/* Form */
+		form {
+			background-color: #D5EBF8;
+			border-width: 1px;
+			border-style: solid;
+			border-color: #81C4E9;
+			border-radius: 10px;
+			margin-bottom: 20px;
+			padding-left: 20px;
+			padding-right: 20px;
+			padding-top: 20px;
+			padding-bottom: 30px;
+		}
+		form.is-error {
+			background-color: #fbbfbf;
+			border-color: #ec5e5e;
+		}
+		form.is-error textarea {
+			border-color: #ec5e5e;
+			color: #ec5e5e;
+		}
+		form.is-error div {
+			color: #ec5e5e;
+		}
+		/* Textarea */
+		textarea {
+			border-radius: 10px;
+			border-width: 1px;
+			border-style: solid;
+			border-color: #81C4E9;
+			color: #4a4a4a;
+			font-size: 14px;
+			height: 50px;
+			margin-bottom: 2px;
+			padding: 6px;
+			resize: none;
+			width: 100%;
+		}
+		textarea::placeholder {
+			color: #a9a9a9;
+		}
+		textarea:focus {
+			border-color: #2D9CDB;
+			outline: none;
+		}
+		/* Fieldset */
+		fieldset {
+			border: none;
+			float: left;
+			font-size: 12px;
+			margin: 0;
+			padding: 0;
+			width: calc(100% - 122px);
+		}
+		fieldset div {
+			color: #2D9CDB;
+			margin-left: 6px;
+			margin-top: 2px;
+		}
+	</style>
+	<script>
+		function lovePost(id) {
+			let heart = document.getElementById("heart-image-"+id)
+			if(heart.src.indexOf("active") === -1) {
+				heart.src = "tweeter/images/heart-active.svg"
+			} else {
+				heart.src = "tweeter/images/heart.svg"
+			}
+		}
+		function deletePost(id) {
+			let elementId = "article-container-"+id
+			let element = document.getElementById(elementId)
+			element.remove()
+	 	}
+		function checkCharacterCount(textArea) {
+			let counter = document.getElementById("input-characters")
+			let container = document.getElementById("form-container")
+			
+			if (textArea.value.length > 140) {
+				textArea.value = textArea.value.substr(0, 140)
+				container.classList.add("is-error")
+			} else {
+				container.classList.remove("is-error")
+			}
+			counter.innerText = textArea.value.length
+		}
+		function submitPost() {
+			let textArea = document.getElementById("input-textarea")
+			let counter = document.getElementById("input-characters")
+			let contentToPost = textArea.value;
+			
+			if(contentToPost.length === 0) {
+				return false;
+			}
+			
+			textArea.value = "";
+			counter.innerText = 0;
+			
+			createPostHTML(contentToPost)
+			return false;
+		}
+		let currentPostId = 1;
+		function createPostHTML(postContent) {
+			let now = new Date()
+			let time = now.toLocaleTimeString()
+			let date = now.toLocaleString()
+			let name = "solomon kimunyu"
+			let username = "solomon"
+			
+			currentPostId = currentPostId + 1
+			
+			postContent = postContent.replace(/</g, "&lt;")
+			postContent = postContent.replace(/\n/g, "<br />")
+			postContent = postContent.replace(/(https?:\/\/[^\s]+)/g, "<a href=\"$1\" target=\"_blank\">$1</a>")
+			
+			let template = `
+				<article id="article-container-${currentPostId}">
+					<header>
+						<button class="close" onclick="deletePost(${currentPostId})">
+							<img src="tweeter/images/close.png" height="15" width="15"/>
+						</button>
+						<div class="avatar">
+						<img src="avatar.png" height="40" width="40"/>
+						</div>
+						<h1>${name}</h1>
+						<h2>@${username}</h2>
+					</header>
+					<blockquote>
+						${postContent}
+					</blockquote>
+					<hr/>
+					<footer>
+						<p class="date-posted">Posted
+							<time>${date}</time>
+						</p>
+						<button class="heart" onclick="lovePost(${currentPostId})">
+							<img src="tweeter/images/heart.svg" id="heart-image-${currentPostId}" height="15" width="16"/>
+						</button>
+					</footer>
+				</article>`
+			document.getElementById("form-container").insertAdjacentHTML("afterend", template)
+		}
+	</script>
+</head>
+<body>
+<main id="container-wrapper">
+	<form id="form-container" onsubmit="return false;">
+		<div class="avatar" id="input-avatar">
+			<img src="avatar.png" height="40" width="40"/>
+		</div>
+		<fieldset>
+			<textarea placeholder="What's happening?" id="input-textarea" onkeypress="checkCharacterCount(this)" onchange="checkCharacterCount(this)"></textarea>
+			<div class="character-count"><span id="input-characters">0</span>/140 characters</div>
+		</fieldset>
+		<button class="compose" onclick="submitPost()">
+			<img src="tweeter/images/compose-icon.png" height="30" width="30"/>
+		</button>
+	</form>
+	<article id="article-container-1">
+		<header>
+			<button class="close" onclick="deletePost(1)">
+				<img src="tweeter/images/close.png" height="15" width="15"/>
+			</button>
+			<div class="avatar">
+				<img src="avatar.png" height="40" width="40"/>
+			</div>
+			<h1>solomon kimunyu</h1>
+			<h2>@solomon</h2>
+		</header>
+		<blockquote>
+			Hi, everyone. I'm learning to type on <a href="https://www.typing.com" target="_blank">www.typing.com</a>. Wow, a
+			link!
+		</blockquote>
+		<hr/>
+		<footer>
+			<p class="date-posted">Posted
+				<time>02/25/22 13:47:26</time>
+			</p>
+			<button class="heart" onclick="lovePost(1)">
+			<img src="tweeter/images/heart.svg" id="heart-image-1" height="15" width="16"/>
+		</button>
+		</footer>
+	</article>
+</main>
+</body>
+</html>
